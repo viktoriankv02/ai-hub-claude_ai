@@ -7,8 +7,8 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "start": "node src/server.mjs",
-    "dev": "node --watch src/server.mjs",
+    "start": "node --env-file-if-exists=.env src/server.mjs",
+    "dev": "node --watch --env-file-if-exists=.env src/server.mjs",
     "test": "node --test",
     "test:browser": "node scripts/browser-smoke.mjs",
     "backup:restore": "node scripts/restore-backup.mjs"

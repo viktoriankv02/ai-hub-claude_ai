@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "AI Drop Hunter — CryptoRank Reader",
+  "version": "1.2.1",
+  "description": "Експорт відкритої картки CryptoRank для локального аналізу.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://cryptorank.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cryptorank.io/drophunting/*",
+        "https://cryptorank.io/ru/drophunting/*"
+      ],
+      "js": [
+        "capture.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
